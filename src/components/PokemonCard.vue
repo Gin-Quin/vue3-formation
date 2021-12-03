@@ -19,7 +19,7 @@ const pickPokemon = () => {
 
 <template>
 	<div class="pokemon">
-		<img :src="props.pokemon.sprites.front_default" />
+		<img :src="props.pokemon.sprites.front_default" width="96" height="96" />
 		<div class="name">{{ props.pokemon.name }}</div>
 		<div class="weight">Poids: {{ props.pokemon.weight }} kg</div>
 		<div class="height">Taille : {{ props.pokemon.height }} cm</div>
