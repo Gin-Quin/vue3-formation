@@ -9,7 +9,7 @@ import Tests from './pages/Tests.vue';
 import MyPokemons from './pages/MyPokemons.vue';
 
 const tabs = ["Accueil", "Mes pokemons", "Pokemons", "Se connecter", "Tests"]
-const activeTab = ref("Home")
+const activeTab = ref(tabs[0])
 </script>
 
 <template>
