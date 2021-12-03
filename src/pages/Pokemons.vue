@@ -3,6 +3,7 @@ import { ref } from '@vue/reactivity';
 import { getRandomPokemon } from '../tools/getRandomPokemon';
 import { Pokemon } from '../types/Pokemon';
 import PokemonCard from '../components/PokemonCard.vue';
+import { user } from '../stores/user';
 
 const pokemons = ref<Array<Pokemon>>([])
 
@@ -18,7 +19,8 @@ loadPokemons()
 </script>
 
 <template>
-	<div class="pokemons">
+	<div v-if="!user">Vous devez être connecté pour choisir des pokemons.</div>
+	<div v-else class="pokemons">
 		<header>Ajoutez un de ces pokemons à votre collection:</header>
 
 		<main>
