@@ -26,7 +26,8 @@ const onSubmit = (event: Event) => {
 // we sign an user
 const signIn = () => {
 	user.value = {
-		name: name.value
+		name: name.value,
+		pokemons: []
 	}
 }
 </script>

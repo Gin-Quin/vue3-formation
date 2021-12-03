@@ -14,5 +14,5 @@ async function loadPokemon() {
 </script>
 
 <template>
-	<PokemonCard v-if="pokemon" :pokemon="pokemon" />
+	<PokemonCard v-if="pokemon" :pokemon="pokemon" :can-pick-pokemon="true" />
 </template>

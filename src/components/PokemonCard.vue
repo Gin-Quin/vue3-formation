@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { user } from '../stores/user';
 import { Pokemon } from '../types/Pokemon';
 
 const props = defineProps<{
 	pokemon: Pokemon
+	canPickPokemon?: boolean
 }>()
+
+const pickPokemon = () => {
+	user.value?.pokemons.push(props.pokemon);
+}
 </script>
 
 <template>
@@ -12,7 +18,8 @@ const props = defineProps<{
 		<div class="name">{{ props.pokemon.name }}</div>
 		<div class="weight">Poids: {{ props.pokemon.weight }} kg</div>
 		<div class="height">Taille : {{ props.pokemon.height }} cm</div>
-		<button>Ajouter à ma liste</button>
+
+		<button v-if="props.canPickPokemon" @click="pickPokemon()">Ajouter à ma liste</button>
 	</div>
 </template>
 
