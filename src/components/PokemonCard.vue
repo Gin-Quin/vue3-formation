@@ -7,8 +7,13 @@ const props = defineProps<{
 	canPickPokemon?: boolean
 }>()
 
+const emit = defineEmits<{
+	(event: "pick-pokemon", value: Pokemon): void
+}>()
+
 const pickPokemon = () => {
 	user.value?.pokemons.push(props.pokemon);
+	emit('pick-pokemon', props.pokemon);
 }
 </script>
 
@@ -30,6 +35,7 @@ img {
 
 .pokemon {
 	width: 200px;
+	height: 240px;
 	border-radius: 9px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
 	padding: 9px;
