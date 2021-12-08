@@ -15,6 +15,11 @@ const loadPokemons = async () => {
 	])
 }
 
+const pickPokemon = (pokemon: Pokemon) => {
+	user.value?.pokemons.push(pokemon)
+	loadPokemons()
+}
+
 loadPokemons()
 </script>
 
@@ -29,7 +34,7 @@ loadPokemons()
 				:pokemon="pokemon"
 				:key="pokemon.id"
 				can-pick-pokemon
-				@pick-pokemon="loadPokemons"
+				@pick-pokemon="pickPokemon"
 			/>
 		</main>
 

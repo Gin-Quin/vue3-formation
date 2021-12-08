@@ -7,9 +7,20 @@ import SignIn from './pages/SignIn.vue';
 import Pokemons from './pages/Pokemons.vue';
 import Tests from './pages/Tests.vue';
 import MyPokemons from './pages/MyPokemons.vue';
+import { watch } from "@vue/runtime-core";
+import { user } from "./stores/user";
 
 const tabs = ["Accueil", "Mes pokemons", "Pokemons", "Se connecter", "Tests"]
 const activeTab = ref(tabs[0])
+
+watch(user, () => {
+  localStorage.setItem('user', JSON.stringify(user.value))
+}, { deep: true })
+
+const storedUser = localStorage.getItem('user')
+if (storedUser) {
+  user.value = JSON.parse(storedUser)
+}
 </script>
 
 <template>

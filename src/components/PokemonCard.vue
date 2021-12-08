@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { user } from '../stores/user';
 import { Pokemon } from '../types/Pokemon';
 
 const props = defineProps<{
 	pokemon: Pokemon
-	canPickPokemon?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -12,8 +10,7 @@ const emit = defineEmits<{
 }>()
 
 const pickPokemon = () => {
-	user.value?.pokemons.push(props.pokemon);
-	emit('pick-pokemon', props.pokemon);
+	emit('pick-pokemon', props.pokemon)
 }
 </script>
 
@@ -24,7 +21,7 @@ const pickPokemon = () => {
 		<div class="weight">Poids: {{ props.pokemon.weight }} kg</div>
 		<div class="height">Taille : {{ props.pokemon.height }} cm</div>
 
-		<button v-if="props.canPickPokemon" @click="pickPokemon()">Ajouter à ma liste</button>
+		<button @click="pickPokemon()">Ajouter à ma liste</button>
 	</div>
 </template>
 

@@ -14,8 +14,8 @@ import { user } from '../stores/user';
 <style scoped>
 .my-pokemons {
 	display: flex;
+	flex-direction: row;
+	gap: 12px;
 	flex-wrap: wrap;
-	gap: 24px;
-	justify-content: center;
 }
 </style>
